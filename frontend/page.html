@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Totally Trustworthy Facts Bot</title>
+  <link rel="stylesheet" href="frontend/style.css">
+  </head>
+  <body>
+    <div>
+      <img src="frontend/trusworthy.png" alt="Totally Trustworthy Facts Bot" width="670" height="134" style="display: flex; align-items: center; justify-content: center;">
+    </div>
+    <h3>hyper intelligent gen AI services</h3>
+
+    <div class="chat">
+      {% for msg in messages[1:] %}
+      <p class="{{ msg['role'] }}">
+      <strong>{{ msg['role'] }}:</strong> {{ msg['content'] }}
+      </p>
+      {% endfor %}
+    </div>
+
+    <form method="POST">
+      <input type="text" name="user_input" placeholder="Ask a question..." required>
+    <button type="submit">Send</button>
+    </form>
+
+    <form method="POST" action="/clear">
+      <button type="submit">Clear Chat</button>
+    </form>
+  </body>
+</html>
